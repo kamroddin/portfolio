@@ -1,0 +1,394 @@
+/* ================= ROOT COLORS ================= */
+:root {
+  --primary: #6366f1;
+  --secondary: #22c55e;
+  --accent: #f97316;
+  --pink: #ec4899;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --gray: #94a3b8;
+  --gradient: linear-gradient(135deg, #6366f1, #22c55e);
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.7;
+}
+
+/* ================= NAVBAR ================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--primary);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  left: 0;
+  bottom: -6px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: var(--gradient);
+  padding: 100px 20px 80px;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+.hero h2 {
+  font-size: 2.4rem;
+  transition: transform 0.3s ease;
+}
+
+.hero h2:hover {
+  transform: scale(1.05);
+}
+
+.hero h2 span {
+  color: #ffedd5;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.hero p:hover {
+  opacity: 1;
+}
+
+/* ================= PROFILE IMAGE ================= */
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.profile-pic:hover {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+}
+
+/* ================= BUTTONS ================= */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero button {
+  padding: 12px 26px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.hero button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  background: linear-gradient(135deg, var(--pink), var(--accent));
+}
+
+.btn-outline {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: 2px solid white;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s, transform 0.3s;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+/* ================= SECTIONS ================= */
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 70px;
+  height: 4px;
+  background: var(--accent);
+  margin: 12px auto 0;
+  display: block;
+  border-radius: 5px;
+}
+
+/* ================= ABOUT ================= */
+.about-text {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  color: #334155;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* ================= SKILLS & PROJECTS ================= */
+.skills-container,
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.skill-card,
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  transition: transform 0.5s, box-shadow 0.5s, background 0.5s;
+  cursor: pointer;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  background: linear-gradient(145deg, #e0f7fa, #fff9c4);
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #fce4ec, #e1f5fe);
+}
+
+/* ================= DARK SECTION ================= */
+.dark {
+  background: var(--dark);
+  color: white;
+  border-radius: 20px;
+}
+
+.dark .section-title {
+  color: #c7d2fe;
+}
+
+/* ================= TIMELINE ================= */
+.timeline {
+  max-width: 700px;
+  margin: auto;
+}
+
+.timeline-item {
+  border-left: 4px solid var(--primary);
+  padding-left: 22px;
+  margin-bottom: 25px;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.timeline-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ================= CONTACT ================= */
+.contact-info {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  transition: border 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid var(--primary);
+  outline: none;
+}
+
+.contact-form button {
+  background: linear-gradient(135deg, var(--accent), var(--pink));
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .hero h2 {
+    font-size: 1.9rem;
+  }
+
+  .profile-pic {
+    width: 140px;
+    height: 140px;
+  }
+
+  .section {
+    padding: 55px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-buttons button,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
