@@ -62,7 +62,7 @@ Dark mode toggle.
 
 📞 Contact
 
-Email: yourname@email.com
+Email: kamroddinalam2345@gmail.com
 
 LinkedIn: linkedin.com/in/yourprofile
 
